@@ -17,7 +17,7 @@ const AdminAPI = {
     });
 
     try {
-      const response = await fetch(url.toString());
+      const response = await fetch(url.toString(), { redirect: 'follow' });
       const data = await response.json();
       if (data.code === 401) {
         AdminApp.logout();
@@ -36,10 +36,12 @@ const AdminAPI = {
     body.token = this.getToken();
 
     try {
+      // GAS không hỗ trợ CORS preflight (OPTIONS),
+      // dùng text/plain để tránh trigger preflight request
       const response = await fetch(url.toString(), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        redirect: 'follow'
       });
       const data = await response.json();
       if (data.code === 401) {
