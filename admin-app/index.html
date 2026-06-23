@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxe Spa - Quản trị</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div id="admin-app">
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+      <div class="login-container">
+        <div class="login-brand">
+          <div class="login-logo">
+            <i class="fas fa-spa"></i>
+          </div>
+          <h1 class="login-title">Luxe Spa & Nail</h1>
+          <p class="login-subtitle">Hệ thống quản trị</p>
+        </div>
+        <form id="login-form" class="login-form">
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <div class="input-icon-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="login-email" class="form-input" placeholder="admin@spa.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mật khẩu</label>
+            <div class="input-icon-wrapper">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+            </div>
+          </div>
+          <button type="submit" class="btn-login">Đăng nhập</button>
+          <p id="login-error" class="login-error"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+      <!-- Sidebar -->
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-brand">
+          <i class="fas fa-spa"></i>
+          <span>Luxe Spa</span>
+        </div>
+        <nav class="sidebar-nav">
+          <button class="sidebar-item active" data-section="bookings">
+            <i class="fas fa-calendar-check"></i>
+            <span>Lịch hẹn</span>
+          </button>
+          <button class="sidebar-item" data-section="services">
+            <i class="fas fa-concierge-bell"></i>
+            <span>Dịch vụ</span>
+          </button>
+          <button class="sidebar-item" data-section="staff">
+            <i class="fas fa-users"></i>
+            <span>Nhân viên</span>
+          </button>
+          <button class="sidebar-item" data-section="customers">
+            <i class="fas fa-user-group"></i>
+            <span>Khách hàng</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div class="main-area">
+        <!-- Header -->
+        <header class="admin-header">
+          <button id="menu-toggle" class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="header-right">
+            <span class="admin-name" id="admin-name">Admin</span>
+            <button id="btn-logout" class="btn-logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Đăng xuất</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Content -->
+        <div id="admin-content" class="admin-content"></div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="admin-toast" class="toast-container"></div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/admin-app.js"></script>
+  <script src="js/sections/bookings.js"></script>
+  <script src="js/sections/services.js"></script>
+  <script src="js/sections/staff.js"></script>
+  <script src="js/sections/customers.js"></script>
+</body>
+</html>
